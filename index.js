@@ -52,6 +52,7 @@ function handle_postal_rate(request, response) {
 function computeOperation(response, mail_type, weight) {
 
 let result = 3.14;
+console.log(mail_type);
   if (mail_type == 'Letters (Stamped)') {
 
   }
