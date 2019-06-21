@@ -43,12 +43,31 @@ showTimes = () => {
 }
 
 function handle_postal_rate(request, response) {
-  // const operation = request.query.operation;
-  // const operand1 = Number(request.query.operand1);
-  // const operand2 = Number(request.query.operand2);
+  const mail_type = request.query.mail_type;
+  const weight = Number(request.query.weight);
 
-  // TODO: Here we should check to make sure we have all the correct parameters
+  computeOperation(response, mail_type, weight)
+}
 
-  // computeOperation(response, operation, operand1, operand2);
-  console.log("IN THE SERVER HENDLE FUNC")
+function computeOperation(response, mail_type, weight) {
+
+let result = 0;
+  if (mail_type == 'Letters (Stamped)') {
+
+  }
+  else if (mail_type == 'Letters (Metered)') {
+
+  }
+  else if (mail_type == 'Large Envelopes (Flats)') {
+
+  }
+  else if (mail_type == 'First-Class Package Service-Retail') {
+    if (weight > 15) {
+      result = 4.94;
+    }
+  }
+
+  const params = {result: result};
+  response.render('pages/result', params);
+
 }
