@@ -1,0 +1,206 @@
+* {
+   margin: 0;
+}
+
+body {
+   background-size: cover;
+   font-family: Arial;
+
+}
+
+ul {
+   margin-top: 0px;
+   margin-right: 50px;
+   margin-left: 50px;
+   border: 0;
+   padding: 0;
+   list-style: none;
+}
+
+ul li {
+   float: left;
+   width: 20%;
+   height: 30px;
+   background-color: #003399;
+   opacity: .8;
+   line-height: 30px;
+   font-size: 14px;
+   text-align: center;
+}
+
+ul li a:hover {
+   background-color: #0099ff;
+   text-decoration: none;
+
+}
+
+ul li ul li {
+   display: none;
+   width: 20%;
+}
+
+ul li:hover ul li {
+   display: block;
+   width: 20%;
+}
+
+h1 {
+   padding: 20px;
+   font-size: 230%;
+   font-family: sans-serif;
+   margin-top: 0px;
+   text-shadow: 0px 1px 1px;
+   -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+   -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+   box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+   background: url('blueFade.jpeg');
+   background-size: 100%;
+}
+
+footer {
+   padding: 20px;
+   font-size: 100%;
+   text-align: center;
+   font-family: sans-serif;
+   margin-top: 0px;
+   background: url('blueFade.jpeg');
+   background-size: 100%;
+}
+
+.img {
+   float: left;
+   margin-right: 1rem;
+}
+
+section {
+   float: bottom;
+   height: 33%;
+   width: 100%;
+}
+
+nav {
+   margin: 10px;
+   background-color: white;
+   border: 2px solid blue;
+   float: left;
+   width: 20%;
+   opacity: .8;
+   padding: 20px;
+   position: relative;
+}
+
+.button {
+   display: block;
+   width: 115px;
+   height: 25px;
+   background: #4E9CAF;
+   padding: 10px;
+   text-align: center;
+   border-radius: 5px;
+   color: white;
+   font-weight: bold;
+}
+
+.btn-group button {
+   background-color: #003399;
+   border: 1px solid green;
+   /* Green border */
+   color: white;
+   /* White text */
+   padding: 10px 24px;
+   /* Some padding */
+   cursor: pointer;
+   /* Pointer/hand icon */
+   width: 100%;
+   /* Set a width if needed */
+   display: block;
+   /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+   border-bottom: none;
+   /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+   background-color: #3e8e41;
+}
+
+#bottom {
+   border: 10px;
+   padding: 10px;
+   background-color: lightblue;
+   position: relative;
+   position: relative;
+   top: 280px;
+}
+
+.container {
+   position: relative;
+   text-align: center;
+}
+
+.top-left {
+   position: absolute;
+   top: 40px;
+   left: 16px;
+   max-height: 300px;
+}
+
+.bottom-left {
+   position: absolute;
+   opacity: .8;
+   bottom: -25px;
+   left: 16px;
+}
+
+.centered {
+   position: absolute;
+   top: 0px;
+   width: 100%;
+}
+
+.flex-container {
+   display: flex;
+   flex-wrap: nowrap;
+   background-color: white;
+   justify-content: center;
+
+}
+
+.flex-container>div {
+   background-color: #f1f1f1;
+   width: 100px;
+   margin: 10px;
+   text-align: center;
+   line-height: 75px;
+   font-size: 30px;
+}
+
+@media only screen and (max-width: 850px) {
+   nav {
+      margin: 10px;
+      background-color: white;
+      border: 2px solid blue;
+      float: left;
+      width: 50%;
+      opacity: .9;
+      padding: 20px;
+      position: relative;
+   }
+}
+
+@media only screen and (max-width: 650px) {
+   nav {
+      margin: 10px;
+      background-color: white;
+      border: 2px solid blue;
+      float: left;
+      width: 85%;
+      opacity: .95;
+      padding: 20px;
+      position: relative;
+      font-size: 12px;
+   }
+}
