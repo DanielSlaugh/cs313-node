@@ -15,6 +15,7 @@ express()
   .get('/', (req, res) => res.render('pages/home/index'))
   .get('/cool', (req, res) => res.send(cool()))
   .get('/times', (req, res) => res.send(showTimes()))
+  .get('/postal_rate', handle_postal_rate)
   .get('/db', async (req, res) => {
     try {
       const client = await pool.connect()
@@ -39,4 +40,15 @@ showTimes = () => {
     result += i + ' '
   }
   return result;
+}
+
+function handle_postal_rate(request, response) {
+  // const operation = request.query.operation;
+  // const operand1 = Number(request.query.operand1);
+  // const operand2 = Number(request.query.operand2);
+
+  // TODO: Here we should check to make sure we have all the correct parameters
+
+  // computeOperation(response, operation, operand1, operand2);
+  console.log("IN THE SERVER HENDLE FUNC")
 }
