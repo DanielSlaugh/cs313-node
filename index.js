@@ -68,6 +68,6 @@ let result = 0;
   }
 
   const params = {result: result};
-  response.render('pages/result', params);
+  response.render('pages/calc_result', params);
 
 }
