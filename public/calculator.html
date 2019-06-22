@@ -2,28 +2,34 @@
 <html>
 
 <head>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    <title>Postal Rate Calc</title>
+
 </head>
 
 <body>
    <h1>Postal Rate Calculator</h1>
    <form action="/postal_rate" method="get">
 
-      <select name="mail_type">
+   <div class="input-field col s12">
+      <select name="mail_type" class="browser-default">
+         <option value="" disabled selected>Select Your Package Type</option>
          <option>Letters (Stamped)</option>
          <option>Letters (Metered)</option>
          <option>Large Envelopes (Flats)</option>
          <option>First-Class Package Service-Retail</option>
       </select>
       <br><br>
+   </div>
 
-      <label for="weight">Weight: </label>
-      <input type="text" name="Weight">
+   <label for="weight">Weight: (oz.)</label>
+   <input type="text" name="Weight">
 
-      <br><br>
-      <input type="submit" value="Get Calculation">
+   <br><br>
+   <input type="submit" value="Get Calculation">
 
    </form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>
