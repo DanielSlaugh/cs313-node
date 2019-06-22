@@ -44,7 +44,7 @@ showTimes = () => {
 
 function handle_postal_rate(request, response) {
   const mail_type = request.query.mail_type;
-  const weight = Number(request.query.weight);
+  const weight = Number(request.query.Weight);
 
   computeOperation(response, mail_type, weight)
 }
@@ -53,19 +53,40 @@ function computeOperation(response, mail_type, weight) {
 
 let result = 3.14;
 console.log(mail_type);
-  if (mail_type == 'Letters (Stamped)') {
-
+console.log(weight);
+  if (mail_type == "Letters (Stamped)") {
+    if (weight >= 3.5) { result = 1.00; }
+    else if (weight >= 3) { result = 0.85; }
+    else if (weight >= 2) { result = 0.70; }
+    else { result = 0.55; }
   }
-  else if (mail_type == 'Letters (Metered)') {
-
+  else if (mail_type == "Letters (Metered)") {
+    if (weight >= 3.5) { result = 0.95; }
+    else if (weight >= 3) { result = 0.80; }
+    else if (weight >= 2) { result = 0.65; }
+    else { result = 0.50; }
   }
-  else if (mail_type == 'Large Envelopes (Flats)') {
-
+  else if (mail_type == "Large Envelopes (Flats)") {
+    if (weight >= 13) { result = 2.80; }
+    else if (weight >= 12) { result = 2.65; }
+    else if (weight >= 11) { result = 2.50; }
+    else if (weight >= 10) { result = 2.35; }
+    else if (weight >= 9) { result = 2.20; }
+    else if (weight >= 8) { result = 2.05; }
+    else if (weight >= 7) { result = 1.90; }
+    else if (weight >= 6) { result = 1.75; }
+    else if (weight >= 5) { result = 1.60; }
+    else if (weight >= 4) { result = 1.45; }
+    else if (weight >= 3) { result = 1.30; }
+    else if (weight >= 2) { result = 1.15; }
+    else { result = 1.00; }
   }
-  else if (mail_type == 'First-Class Package Service-Retail') {
-    if (weight > 15) {
-      result = 4.94;
-    }
+  else if (mail_type == "First-Class Package Service-Retail") {
+    console.log('In parsel')
+    if (weight >= 13) {result = 4.94;}
+    else if (weight >= 9) { result = 3.82; }
+    else if (weight >= 5) { result = 3.18; }
+    else { result = 2.66; }
   }
 
   const params = {result: result};
