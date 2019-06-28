@@ -1,0 +1,16 @@
+{
+  "name": "fakebook",
+  "version": "1.0.0",
+  "description": "Facebook Clone",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Slaugh",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "pg": "^7.11.0"
+  }
+}

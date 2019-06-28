@@ -1,0 +1,249 @@
+/*
+  Some CSS Setup
+  The flexbox in the styling is from the JavaScript30 course
+*/
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  font-size: 1.5rem;
+  background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+}
+
+a {
+  color:white;
+  text-decoration: none;
+}
+
+
+.posts{
+  list-style-type: none;
+  background: #e0e0e0;
+  margin: 0px;
+  padding: 0px;
+}
+
+.post{
+ background: white;
+ margin-top: 2vh;
+ padding-left: 1.5vw;
+}
+
+.post h3{
+  margin: 0px;
+  margin-top: 2vw;
+  font-size: .8em;
+}
+
+.post p {
+  font-size: .38em;
+  margin-top: 0px;
+}
+
+.post_comment i{
+  color: black;
+  font-size: .70em;
+  padding-left:38vw;
+  padding-right: 40vw;
+  padding-bottom: 2vh;
+  padding-top: 1vh;
+  border-top: solid lightgrey;
+}
+
+
+a.button {
+  background:#ffffff;
+  border: solid lightgrey;
+  color: black;
+  padding:2rem 2rem;
+  border-radius:4px;
+  border-radius: 45%;
+}
+
+a.post_button {
+  background:#ffffff;
+  border: solid lightgrey;
+  color: black;
+  padding:1.5rem 3rem;
+  border-radius:4px;
+  border-radius: 80px;
+  width: 50vw;
+}
+
+.textarea{
+  font-size:1.3em;
+  width: 100%;
+  height: 20vh;
+  font-family:inherit;
+}
+
+.submit{
+  width: 100%;
+  height: 7vh;
+  font-size: 1.2em;
+  background:#2e7ffd;
+  color: white;
+}
+
+.app-wrap {
+  width:100vw;
+  height: 100vh;
+/*   margin: vh auto vh auto; */
+  border:10px solid rgba(0,0,0,0.8);
+/*   border-bottom-width: 70px; */
+  border-radius:10px;
+  box-shadow:0 0 50px  rgba(0,0,0,0.3);
+}
+
+
+.content {
+  padding:0px;
+  padding-top:.5vh;
+  background:#e0e0e0;
+  box-shadow:inset 0 5px 0 rgba(0,0,0,0.1);
+  line-height: 1.6;
+}
+
+.content img {
+  max-width:50%;
+  float:left;
+  margin-right: 10px;
+}
+
+
+.icon-bar a {
+  text-align: center;
+  color: white;
+  padding:1.5rem;
+  border-left:1px solid rgba(0,0,0,0.1);
+  background:#3950b1;
+  color:rgba(0,0,0,0.5);
+}
+
+.icon-bar a:first-child {
+  border-left: 0;
+}
+
+.icon-bar a:first-child, .icon-bar a:hover {
+  border-bottom: 5px solid rgba(0,0,0,0.1);
+}
+
+.icon-bar {
+  border-top:1px solid #E6E6E6;
+}
+
+.icon-bar i {
+  display: block;
+  font-size: 2.5rem;
+  color:white;
+  text-shadow:3px 3px 0 rgba(0,0,0,0.1);
+  padding-bottom: 1rem;
+}
+
+.app-header {
+  background:#ffffff;
+  color:rgba(0,0,0,0.5);
+  padding:1rem;
+}
+
+/*
+Login Page
+*/
+
+/* Full-width input fields */
+.full_width {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 1.5em;
+}
+
+p.full_width{
+  text-align: center;
+  border: 0px;
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
+/* Set a style for all buttons */
+.auth_button, .auth_button2 {
+  color: white;
+  padding: 18px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.5em;
+  margin-top: 2vh;
+}
+
+.auth_button  {background-color: #3950b1;}
+.auth_button2 {background-color: #0da921;}
+
+
+button:hover {
+  opacity: 0.8;
+}
+
+#new_user_message{
+  font-size:1.3em;
+}
+
+/*
+  Begin Flexbox + Important CSS Starts Here
+*/
+
+.app-wrap {
+  display:flex;
+  flex-direction:column;
+}
+
+.app-wrap > * {
+  flex:1 1 auto;
+}
+
+/*
+  Header
+*/
+
+.app-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/*
+  Content
+*/
+
+.content {
+  overflow-y:scroll;
+  -webkit-overflow-scrolling:touch;
+}
+
+/*
+  Icon Bar
+*/
+
+.icon-bar {
+  display:flex;
+}
+
+.icon-bar a {
+  flex:1;
+}
+
