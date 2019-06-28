@@ -22,8 +22,8 @@ function load_home_page(valid_user) {
                   console.log($display_name);
 
                   console.log(data.rows[i].message_time);
-                  $time_day = data.rows[i].message_time.substring(8, 2);
-                  $time_month = data.rows[i].message_time.substring(5, 2);
+                  $time_day = data.rows[i].message_time.substring(8, 10);
+                  $time_month = data.rows[i].message_time.substring(5, 7);
                   console.log($time_month)
                   $time_year = data.rows[i].message_time.substring(0, 4);
                   $month_array = ['No_zero', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
