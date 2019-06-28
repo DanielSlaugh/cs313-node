@@ -18,7 +18,7 @@ function load_home_page(valid_user) {
                alert(JSON.stringify(data))
                for(var i = 0; i < data.rows.length; i++){
                   console.log("Looping my brother")
-                  $dispay_name = data.rows[i].display_name;
+                  dispay_name = data.rows[i].display_name;
                   console.log($dispay_name);
 
                   $time_day = data.rows[i].message_time.substring(8, 2);
