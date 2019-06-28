@@ -16,7 +16,10 @@ function load_home_page(valid_user) {
    $.get("/user", function (data, status) {
       if (status == "success") {
                for(var i = 0; i < data.length; i++){
+                  console.log("Looping my brother")
                   $dispay_name = data[i].display_name;
+                  console.log($dispay_name);
+
                   $time_day = data[i].message_time.substring(8, 2);
                   $time_month = data[i].message_time.substring(5, 2);
                   $time_year = data[i].message_time.substring(0, 4);
