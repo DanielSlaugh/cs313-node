@@ -33,7 +33,7 @@ express()
       "SELECT u.display_name, m.message_text, m.message_time FROM users u JOIN message m ON u.id = m.user_id ORDER BY m.message_time DESC";
     pool.query(sql, function(err, result) {
       console.log(result);
-      res.render("/fakebook/views/home");
+      res.render("/views/home");
     });
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
