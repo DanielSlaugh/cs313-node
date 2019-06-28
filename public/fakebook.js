@@ -31,7 +31,7 @@ function load_home_page(valid_user) {
                      <div class="post_content">` + $message + `</div>
                      <a href="#" class="post_comment"><i>comment</i></a>
                      </li>`;
-               })
+               }
 
            if (valid_user == "") {
                load_profile_page();
