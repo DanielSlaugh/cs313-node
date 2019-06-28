@@ -15,16 +15,11 @@ function load_home_page(valid_user) {
    var html = ""
    $.get("/user", function (data, status) {
       if (status == "success") {
-               alert(JSON.stringify(data))
+               // alert(JSON.stringify(data))
                for(var i = 0; i < data.rows.length; i++){
-                  console.log("Looping my brother")
                   $display_name = data.rows[i].display_name;
-                  console.log($display_name);
-
-                  console.log(data.rows[i].message_time);
                   $time_day = data.rows[i].message_time.substring(8, 10);
                   $time_month = data.rows[i].message_time.substring(5, 7);
-                  console.log($time_month)
                   $time_year = data.rows[i].message_time.substring(0, 4);
                   $month_array = ['No_zero', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                   $message = data.rows[i].message_text;
