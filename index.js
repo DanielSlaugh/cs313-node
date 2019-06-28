@@ -29,12 +29,14 @@ express()
     }
   })
   .get("/fakebook", (req, res) => {
-    var sql =
-      "SELECT u.display_name, m.message_text, m.message_time FROM users u JOIN message m ON u.id = m.user_id ORDER BY m.message_time DESC";
-    pool.query(sql, function(err, result) {
-      console.log(result);
       res.render("home");
-    });
+    })
+  .get("/user", (req, res) =>{
+      var sql =
+      "SELECT u.display_name, m.message_text, m.message_time FROM users u JOIN message m ON u.id = m.user_id ORDER BY m.message_time DESC";
+      pool.query(sql, function(err, result) {
+      res.json(result);
+      })
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
