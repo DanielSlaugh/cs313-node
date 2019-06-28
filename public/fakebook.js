@@ -19,7 +19,7 @@ function load_home_page(valid_user) {
                for(var i = 0; i < data.rows.length; i++){
                   console.log("Looping my brother")
                   $display_name = data.rows[i].display_name;
-                  console.log($dispay_name);
+                  console.log($display_name);
 
                   $time_day = data.rows[i].message_time.substring(8, 2);
                   $time_month = data.rows[i].message_time.substring(5, 2);
