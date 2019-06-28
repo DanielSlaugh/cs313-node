@@ -18,14 +18,14 @@ function load_home_page(valid_user) {
                alert(JSON.stringify(data))
                for(var i = 0; i < data.rows.length; i++){
                   console.log("Looping my brother")
-                  $dispay_name = data[i].display_name;
+                  $dispay_name = data.rows[i].display_name;
                   console.log($dispay_name);
 
-                  $time_day = data[i].message_time.substring(8, 2);
-                  $time_month = data[i].message_time.substring(5, 2);
-                  $time_year = data[i].message_time.substring(0, 4);
+                  $time_day = data.rows[i].message_time.substring(8, 2);
+                  $time_month = data.rows[i].message_time.substring(5, 2);
+                  $time_year = data.rows[i].message_time.substring(0, 4);
                   $month_array = ['No_zero', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-                  $message = data[i].message_text;
+                  $message = data.rows[i].message_text;
 
                   html += `<li class="post">
                      <div class="post__title">
