@@ -16,12 +16,12 @@ function load_home_page(valid_user) {
    $.get("/user", function (data, status) {
       if (status == "success") {
                for(var i = 0; i < data.length; i++){
-                  $dispay_name = data[i]['display_name'];
-                  $time_day = data[i]['message_time'].substring(8, 2);
-                  $time_month = data[i]['message_time'].substring(5, 2);
-                  $time_year = data[i]['message_time'].substring(0, 4);
+                  $dispay_name = data[i].display_name;
+                  $time_day = data[i].message_time.substring(8, 2);
+                  $time_month = data[i].message_time.substring(5, 2);
+                  $time_year = data[i].message_time.substring(0, 4);
                   $month_array = ['No_zero', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-                  $message = data[i]['message_text'];
+                  $message = data[i].message_text;
 
                   html += `<li class="post">
                      <div class="post__title">
