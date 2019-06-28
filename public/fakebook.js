@@ -21,6 +21,7 @@ function load_home_page(valid_user) {
                   $display_name = data.rows[i].display_name;
                   console.log($display_name);
 
+                  console.log(data.rows[i].message_time);
                   $time_day = data.rows[i].message_time.substring(8, 2);
                   $time_month = data.rows[i].message_time.substring(5, 2);
                   console.log($time_month)
