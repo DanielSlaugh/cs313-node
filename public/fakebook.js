@@ -23,6 +23,7 @@ function load_home_page(valid_user) {
 
                   $time_day = data.rows[i].message_time.substring(8, 2);
                   $time_month = data.rows[i].message_time.substring(5, 2);
+                  console.log($time_month)
                   $time_year = data.rows[i].message_time.substring(0, 4);
                   $month_array = ['No_zero', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
                   $message = data.rows[i].message_text;
