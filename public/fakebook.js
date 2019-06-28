@@ -16,7 +16,7 @@ function load_home_page(valid_user) {
    $.get("/user", function (data, status) {
       if (status == "success") {
                alert(JSON.stringify(data))
-               for(var i = 0; i < data.length; i++){
+               for(var i = 0; i < data.rows.length; i++){
                   console.log("Looping my brother")
                   $dispay_name = data[i].display_name;
                   console.log($dispay_name);
