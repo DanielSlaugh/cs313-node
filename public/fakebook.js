@@ -15,7 +15,7 @@ function load_home_page(valid_user) {
    var html = ""
    $.get("/user", function (data, status) {
       if (status == "success") {
-               alert(data[0])
+               alert(JSON.stringify(data))
                for(var i = 0; i < data.length; i++){
                   console.log("Looping my brother")
                   $dispay_name = data[i].display_name;
@@ -39,7 +39,7 @@ function load_home_page(valid_user) {
 
            if (valid_user == "") {
                load_profile_page();
-               console.log("else if no valid user");
+               console.log("no valid user");
             }
             else if (valid_user == "1") {
                document.getElementById("form").style.display = "none";
@@ -50,7 +50,7 @@ function load_home_page(valid_user) {
                document.getElementById("login_form").style.display = "none";
                document.getElementById("sign_up_form").style.display = "none";
                document.getElementById("new_user_message").style.display = "none";
-               console.log("else if there is a valid user");
+               console.log("there is a valid user");
             }
       }
    })
