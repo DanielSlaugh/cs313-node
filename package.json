@@ -5,9 +5,9 @@
   "engines": {
     "node": "10.x"
   },
-  "main": "fakebook/server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node fakebook/server.js",
+    "start": "node index.js",
     "test": "node test.js"
   },
   "dependencies": {

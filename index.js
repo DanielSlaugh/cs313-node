@@ -9,26 +9,34 @@ const pool = new Pool({
 });
 
 express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/home/index'))
-  .get('/cool', (req, res) => res.send(cool()))
-  .get('/times', (req, res) => res.send(showTimes()))
-  .get('/postal_rate', handle_postal_rate)
-  .get('/db', async (req, res) => {
+  .use(express.static(path.join(__dirname, "public")))
+  .set("views", path.join(__dirname, "views"))
+  .set("view engine", "ejs")
+  .get("/", (req, res) => res.render("pages/home/index"))
+  .get("/cool", (req, res) => res.send(cool()))
+  .get("/times", (req, res) => res.send(showTimes()))
+  .get("/postal_rate", handle_postal_rate)
+  .get("/db", async (req, res) => {
     try {
-      const client = await pool.connect()
-      const result = await client.query('SELECT * FROM test_table');
-      const results = { 'results': (result) ? result.rows : null };
-      res.render('pages/db', results);
+      const client = await pool.connect();
+      const result = await client.query("SELECT * FROM test_table");
+      const results = { results: result ? result.rows : null };
+      res.render("pages/db", results);
       client.release();
     } catch (err) {
       console.error(err);
       res.send("Error " + err);
     }
   })
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  .get("/fakebook", (req, res) => {
+    var sql =
+      "SELECT u.display_name, m.message_text, m.message_time FROM users u JOIN message m ON u.id = m.user_id ORDER BY m.message_time DESC";
+    pool.query(sql, function(err, result) {
+      console.log(result);
+      res.render("/fakebook/views/home");
+    });
+  })
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 
 
