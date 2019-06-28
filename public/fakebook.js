@@ -12,9 +12,27 @@ document.addEventListener('DOMContentLoaded', function () {
 }, false);
 
 function load_home_page(valid_user) {
+   var html = ""
    $.get("/user", function (data, status) {
       if (status == "success") {
-         alert(JSON.stringify(data))
+               data.forEach (function (item) {
+                  $dispay_name = item['display_name'];
+                  $time_day = item['message_time'].substring(8, 2);
+                  $time_month = item['message_time'].substring(5, 2);
+                  $time_year = item['message_time'].substring(0, 4);
+                  $month_array = ['No_zero', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                  $message = item['message_text'];
+
+                  html += `<li class="post">
+                     <div class="post__title">
+                     <h3>` +  $dispay_name + `</h3>
+                     <p>` + $month_array[parseInt($time_month)] + ` ` + $time_day + `, ` + $time_year + `</p>
+                     </div>
+                     <div class="post_content">` + $message + `</div>
+                     <a href="#" class="post_comment"><i>comment</i></a>
+                     </li>`;
+               })
+
            if (valid_user == "") {
                load_profile_page();
                console.log("else if no valid user");
@@ -22,6 +40,8 @@ function load_home_page(valid_user) {
             else if (valid_user == "1") {
                document.getElementById("form").style.display = "none";
                document.getElementById("content").style.display = "block";
+               document.getElementById("content").innerHTML = html;
+
                document.getElementById("main_head").style.display = "flex";
                document.getElementById("login_form").style.display = "none";
                document.getElementById("sign_up_form").style.display = "none";
