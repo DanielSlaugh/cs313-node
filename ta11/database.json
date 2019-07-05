@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "email": "user1@email.com",
+      "password": "user1",
+      "firstname": "Test",
+      "lastname": "User",
+      "age": 20,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "email": "user2@email.com",
+      "password": "user2"
+    },
+    {
+      "email": "user3@email.com",
+      "password": "$2a$10$gFzBsVMWTJAB3H81DDDS3.iGM4lVCBh9SMlfAipzyHnd/X17mk9y6",
+      "id": 3
+    }
+  ],
+  "posts": [
+    {
+      "title": "post 1",
+      "content": "post 1",
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "title": "post 2",
+      "content": "post 2",
+      "userId": 1,
+      "id": 5
+    },
+
+    {
+      "title": "post 3",
+      "content": "post 3",
+      "userId": "1",
+      "createdAt": 1558736105449,
+      "id": 8
+    }
+  ]
+}
