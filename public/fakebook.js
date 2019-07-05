@@ -1,5 +1,5 @@
 console.log("in the script");
-var val = false;
+var val = true;
 
 // Calls every time the page has been loaded. Fixes the bug where user
 // couldn't do anything after signing up because the HTML hadn't been created
@@ -85,6 +85,7 @@ function load_profile_page() {
    document.getElementById("sign_up_form").style.display = "none";
    document.getElementById("new_user_message").style.display = "none";
 }
+
 function load_sign_up_page() {
    var url = document.URL;
    if (url.includes("set")) {
