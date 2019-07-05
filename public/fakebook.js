@@ -38,6 +38,7 @@ function load_home_page(valid_user) {
                       document.getElementById("login_psw").value == data.rows[i].password) {
                          console.log("Checked user against the database!! Logged in");
                          val = true;
+                         valid_user = true;
                   }
                   else{
                      console.log("IN else statement. Couldn't find match in Database");
