@@ -36,7 +36,7 @@ function load_home_page(valid_user) {
 
                   if (document.getElementById("login_uname").value == data.rows[i].username &&
                       document.getElementById("login_psw").value == data.rows[i].password) {
-                         console.log("Checked user against the database!! Logged in");
+                         alert("Checked user against the database!! Logged in");
                          val = true;
                          valid_user = true;
                   }
