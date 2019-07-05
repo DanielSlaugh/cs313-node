@@ -49,27 +49,27 @@
             </form>
 
             <!-- Loggin Page -->
-            <form class="full_width" id="login_form" method="post"
+            <form class="full_width" id="login_form">
                action="">
                <label for="uname"><b>Username</b></label><br>
-               <input class="full_width" type="text" placeholder="Enter Username" name="uname" required><br>
+               <input class="full_width" id="login_uname" type="text" placeholder="Enter Username" name="uname" required><br>
                <label for="psw"><b>Password</b></label><br>
-               <input class="full_width" type="password" placeholder="Enter Password" name="psw" required><br>
-               <button class="auth_button" type="submit">Login</button>
+               <input class="full_width" id="login_psw" type="password" placeholder="Enter Password" name="psw" required><br>
+               <button class="auth_button" type="buton" onclick="load_home_page(val)">Login</button>
                <p class="full_width">or</p>
                <button class="auth_button2" type="button" onclick="load_sign_up_page()">Sign-up</button>
                <br><br><br><br><br><br><br><br>
             </form>
 
             <!-- Sign up Page -->
-            <form class="full_width" id="sign_up_form" method="post" action="new_user.php">
+            <form class="full_width" id="sign_up_form">
                <label for="uname"><b>Username</b></label><br>
-               <input class="full_width" type="text" placeholder="Enter Username" name="uname" required><br>
+               <input class="full_width" id="sign_up_uname" type="text" placeholder="Enter Username" name="uname" required><br>
                <label for="psw"><b>Password</b></label><br>
-               <input class="full_width" type="password" placeholder="Enter Password" name="psw" required><br>
+               <input class="full_width" id="sign_up_psw" type="password" placeholder="Enter Password" name="psw" required><br>
                <label for="dname"><b>Display Name</b></label><br>
-               <input class="full_width" type="text" placeholder="Enter Name" name="dname" required><br>
-               <button class="auth_button" type="submit">Sign-up</button>
+               <input class="full_width" id="sign_up_dname" type="text" placeholder="Enter Name" name="dname" required><br>
+               <button class="auth_button" type="button">Sign-up</button>
                <p class="full_width">or</p>
                <button class="auth_button2" type="button" onclick="load_profile_page()">Login</button>
                <br><br><br><br><br>
