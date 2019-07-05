@@ -1,5 +1,5 @@
 console.log("in the script");
-var val = false;
+var valid_user = false;
 
 // Calls every time the page has been loaded. Fixes the bug where user
 // couldn't do anything after signing up because the HTML hadn't been created
@@ -37,8 +37,8 @@ function load_home_page(valid_user) {
                   if (document.getElementById("login_uname").value == data.rows[i].username &&
                       document.getElementById("login_psw").value == data.rows[i].password) {
                          alert("Checked user against the database!! Logged in");
-                         val = true;
-                         valid_user = true;
+                        //  val = true;
+                         valid_user = 1;
                   }
                   else{
                      console.log("IN else statement. Couldn't find match in Database");
