@@ -1,4 +1,5 @@
 console.log("in the script");
+var val = false;
 
 // Calls every time the page has been loaded. Fixes the bug where user
 // couldn't do anything after signing up because the HTML hadn't been created
