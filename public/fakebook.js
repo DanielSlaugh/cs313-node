@@ -27,6 +27,7 @@ function load_home_page() {
    // alert(valid_user)
    $.get("/user", function (data, status) {
       if (status == "success") {
+         alert(data.val)
                // alert(JSON.stringify(data))
                for(var i = 0; i < data.result.rows.length; i++){
                   $display_name = data.result.rows[i].display_name;
