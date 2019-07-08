@@ -62,7 +62,6 @@ express()
            req.session.val = 1;
            res.json({ val: 1 })
          }
-         res.json(result);
       })
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
