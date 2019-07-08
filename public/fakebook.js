@@ -44,6 +44,8 @@ function load_home_page(valid_user) {
                   <a href="#" class="post_comment"><i>comment</i></a>
                   </li>`;
 
+
+
                   // if (document.getElementById("login_uname").value == data.rows[i].username &&
                   // document.getElementById("login_psw").value == data.rows[i].password) {
                   //    alert("Checked user against the database!! Logged in");
