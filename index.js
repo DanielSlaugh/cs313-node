@@ -50,6 +50,9 @@ express()
       var sql = "SELECT u.id, u.display_name, u.username, u.password FROM users u WHERE u.username='" + uname + "' AND u.password='" + psw + "'";
       pool.query(sql, function (err, result) {
          var length = result.rows.length
+        console.log(result.rows)
+        console.log(uname)
+         console.log(psw)
          if (length == 0) {
            req.session.val = 0;
            res.json({val: 0})
