@@ -43,6 +43,7 @@ express()
       pool.query(sql, function(err, result) {
       res.json(result);
       })
+  })
   .post("/login", (req, res) => {
       var uname = req.body.uname
       var psw = req.body.psw
