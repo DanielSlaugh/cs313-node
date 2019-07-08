@@ -55,7 +55,7 @@ function load_home_page(valid_user) {
                   }
                }
 
-           if (valid_user == "") {
+           if (valid_user == "0") {
                load_profile_page();
                console.log("no valid user");
             }
