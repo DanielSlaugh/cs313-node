@@ -23,6 +23,7 @@ function login(){
 function load_home_page(valid_user) {
    var html = ""
    var profile_pic = ""
+   alert(valid_user)
    $.get("/user", function (data, status) {
       if (status == "success") {
                // alert(JSON.stringify(data))
@@ -43,16 +44,16 @@ function load_home_page(valid_user) {
                   <a href="#" class="post_comment"><i>comment</i></a>
                   </li>`;
 
-                  if (document.getElementById("login_uname").value == data.rows[i].username &&
-                  document.getElementById("login_psw").value == data.rows[i].password) {
-                     alert("Checked user against the database!! Logged in");
-                     val = true;
-                     valid_user = 1;
-                     // profile_pic = `<p>` + $display_name + `</p>`;
-                  }
-                  else{
-                     console.log("IN else statement. Couldn't find match in Database");
-                  }
+                  // if (document.getElementById("login_uname").value == data.rows[i].username &&
+                  // document.getElementById("login_psw").value == data.rows[i].password) {
+                  //    alert("Checked user against the database!! Logged in");
+                  //    val = true;
+                  //    valid_user = 1;
+                  //    // profile_pic = `<p>` + $display_name + `</p>`;
+                  // }
+                  // else{
+                  //    console.log("IN else statement. Couldn't find match in Database");
+                  // }
                }
 
            if (valid_user == "0") {
