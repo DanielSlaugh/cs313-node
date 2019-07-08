@@ -62,7 +62,6 @@ express()
          res.json(result);
       })
   })
-  })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 
