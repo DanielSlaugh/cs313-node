@@ -1,5 +1,5 @@
 console.log("in the script");
-var val = true;
+// var val = true;
 
 // Calls every time the page has been loaded. Fixes the bug where user
 // couldn't do anything after signing up because the HTML hadn't been created
@@ -12,8 +12,17 @@ document.addEventListener('DOMContentLoaded', function () {
    }
 }, false);
 
+function login(){
+  var uname = document.getElementById("login_uname").value
+  var psw =  document.getElementById("login_psw").value
+   $.post("/login", {uname: uname, psw: psw}, function(data, status){
+      load_home_page(data.val)
+   })
+}
+
 function load_home_page(valid_user) {
    var html = ""
+   var profile_pic = ""
    $.get("/user", function (data, status) {
       if (status == "success") {
                // alert(JSON.stringify(data))
@@ -26,19 +35,20 @@ function load_home_page(valid_user) {
                   $message = data.rows[i].message_text;
 
                   html += `<li class="post">
-                     <div class="post__title">
-                     <h3>` +  $display_name + `</h3>
-                     <p>` + $month_array[parseInt($time_month)] + ` ` + $time_day + `, ` + $time_year + `</p>
-                     </div>
-                     <div class="post_content">` + $message + `</div>
-                     <a href="#" class="post_comment"><i>comment</i></a>
-                     </li>`;
+                  <div class="post__title">
+                  <h3>` +  $display_name + `</h3>
+                  <p>` + $month_array[parseInt($time_month)] + ` ` + $time_day + `, ` + $time_year + `</p>
+                  </div>
+                  <div class="post_content">` + $message + `</div>
+                  <a href="#" class="post_comment"><i>comment</i></a>
+                  </li>`;
 
                   if (document.getElementById("login_uname").value == data.rows[i].username &&
-                      document.getElementById("login_psw").value == data.rows[i].password) {
-                         alert("Checked user against the database!! Logged in");
-                         val = true;
-                         valid_user = 1;
+                  document.getElementById("login_psw").value == data.rows[i].password) {
+                     alert("Checked user against the database!! Logged in");
+                     val = true;
+                     valid_user = 1;
+                     // profile_pic = `<p>` + $display_name + `</p>`;
                   }
                   else{
                      console.log("IN else statement. Couldn't find match in Database");
@@ -53,6 +63,7 @@ function load_home_page(valid_user) {
                document.getElementById("form").style.display = "none";
                document.getElementById("content").style.display = "block";
                document.getElementById("content").innerHTML = html;
+               // document.getElementById("profile_picture").innerHTML = html;
 
                document.getElementById("main_head").style.display = "flex";
                document.getElementById("login_form").style.display = "none";

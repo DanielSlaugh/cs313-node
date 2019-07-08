@@ -2,6 +2,36 @@
   Some CSS Setup
   The flexbox in the styling is from the JavaScript30 course
 */
+
+/* For laptops and bigger */
+@media only screen and (min-width: 1000px) {
+div.content{
+  max-width: 50%;
+
+  }
+  div.app-wrap{
+    background-color: #e0e0e0;
+    align-items:center;
+  }
+  div.icon-bar{
+    width: 100%;
+    max-height: 5em;
+  }
+  #main_head{
+    width:50%;
+    font-size: 1em;
+  }
+  #main_head.button{
+    width:50%;
+    display: none;
+  }
+  #main_head.post_button{
+    width:100%;
+    font-size:.4em;
+  }
+}
+
+
 html {
   box-sizing: border-box;
 }

@@ -1,6 +1,10 @@
 const cool = require('cool-ascii-faces')
 const express = require('express')
 const path = require('path')
+
+var session = require('express-session')
+var bodyParser = require('body-parser')
+
 const PORT = process.env.PORT || 5000
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -10,6 +14,9 @@ const pool = new Pool({
 
 express()
   .use(express.static(path.join(__dirname, "public")))
+  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({extended: true}))
+  .use(session({secret: 'iloveuit'}))
   .set("views", path.join(__dirname, "views"))
   .set("view engine", "ejs")
   .get("/", (req, res) => res.render("pages/home/index"))
@@ -36,6 +43,24 @@ express()
       pool.query(sql, function(err, result) {
       res.json(result);
       })
+  .post("/login", (req, res) => {
+      var uname = req.body.uname
+      var psw = req.body.psw
+      var sql = "SELECT u.id, u.display_name, u.username, u.password FROM users u WHERE u.username='" + uname + "' AND u.password='" + psw + "'";
+      pool.query(sql, function (err, result) {
+         var length = result.rows.length
+         if (length == 0) {
+           req.session.val = 0;
+           res.json({val: 0})
+          }
+          else{
+           req.session.current_display_name = result.rows[0].display_name;
+           req.session.val = 1;
+           res.json({ val: 1 })
+         }
+         res.json(result);
+      })
+  })
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
