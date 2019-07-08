@@ -9,13 +9,13 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
-<body onload="load_home_page(0)">
+<body onload="load_home_page()">
 
    <div class="app-wrap">
 
       <!-- Top Menu bar -->
       <div class="icon-bar">
-         <a><i class="fa fa-home" onclick="load_home_page(val)"></i>Home</a>
+         <a><i class="fa fa-home" onclick="load_home_page()"></i>Home</a>
          <a><i class="fa fa-bell"></i>Notifications</a>
          <a><i class="fa fa-envelope"></i>Messages</a>
          <a><i class="fa fa-user" onclick="load_profile_page()"></i>Me</a>
@@ -42,7 +42,7 @@
                   name="message_text"></textarea>
                <input class="submit" type="button" value="Post" onclick="makeRequest(document.getElementById('current_id').value,
                                                                                      document.getElementById('message_text').value);
-                                                                                     load_home_page(val);
+                                                                                     load_home_page();
                                                                                      window.location.reload();">
                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </form>

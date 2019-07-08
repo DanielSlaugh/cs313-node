@@ -41,7 +41,7 @@ express()
   .get("/user", (req, res) =>{
       var sql = "SELECT u.username, u.password, u.display_name, m.message_text, m.message_time FROM users u JOIN message m ON u.id = m.user_id ORDER BY m.message_time DESC";
       pool.query(sql, function(err, result) {
-      res.json(result);
+      res.json({result: result, val: req.session.val});
       })
   })
   .post("/login", (req, res) => {

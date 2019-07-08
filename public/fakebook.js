@@ -17,24 +17,24 @@ function login(){
   var psw =  document.getElementById("login_psw").value
   alert(uname)
    $.post("/login", {uname: uname, psw: psw}, function(data, status){
-      load_home_page(data.val)
+      load_home_page()
    })
 }
 
-function load_home_page(valid_user) {
+function load_home_page() {
    var html = ""
    var profile_pic = ""
-   alert(valid_user)
+   // alert(valid_user)
    $.get("/user", function (data, status) {
       if (status == "success") {
                // alert(JSON.stringify(data))
-               for(var i = 0; i < data.rows.length; i++){
-                  $display_name = data.rows[i].display_name;
-                  $time_day = data.rows[i].message_time.substring(8, 10);
-                  $time_month = data.rows[i].message_time.substring(5, 7);
-                  $time_year = data.rows[i].message_time.substring(0, 4);
+               for(var i = 0; i < data.result.rows.length; i++){
+                  $display_name = data.result.rows[i].display_name;
+                  $time_day = data.result.rows[i].message_time.substring(8, 10);
+                  $time_month = data.result.rows[i].message_time.substring(5, 7);
+                  $time_year = data.result.rows[i].message_time.substring(0, 4);
                   $month_array = ['No_zero', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-                  $message = data.rows[i].message_text;
+                  $message = data.result.rows[i].message_text;
 
                   html += `<li class="post">
                   <div class="post__title">
@@ -59,11 +59,11 @@ function load_home_page(valid_user) {
                   // }
                }
 
-           if (valid_user == "0") {
+           if (data.val == "0") {
                load_profile_page();
                console.log("no valid user");
             }
-            else if (valid_user == "1") {
+            else if (data.val == "1") {
                document.getElementById("form").style.display = "none";
                document.getElementById("content").style.display = "block";
                document.getElementById("content").innerHTML = html;
