@@ -53,7 +53,8 @@ function load_home_page() {
                document.getElementById("content").innerHTML = html;
 
             //   var username = "<%= Session['current_display_name'] %>";
-              var username = sessionStorage.getItem("current_display_name");
+            //   var username = sessionStorage.getItem("current_display_name");
+              var username = data.current_display_name;
               alert(username);
                // document.getElementById("profile_picture").innerHTML = html;
 
