@@ -1,5 +1,4 @@
 console.log("in the script");
-// var val = true;
 
 // Calls every time the page has been loaded. Fixes the bug where user
 // couldn't do anything after signing up because the HTML hadn't been created
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
 function login(){
   var uname = document.getElementById("login_uname").value
   var psw =  document.getElementById("login_psw").value
-  alert(uname)
    $.post("/login", {uname: uname, psw: psw}, function(data, status){
       load_home_page()
    })
@@ -24,10 +22,8 @@ function login(){
 function load_home_page() {
    var html = ""
    var profile_pic = ""
-   // alert(valid_user)
    $.get("/user", function (data, status) {
       if (status == "success") {
-         alert(data.val)
                // alert(JSON.stringify(data))
                for(var i = 0; i < data.result.rows.length; i++){
                   $display_name = data.result.rows[i].display_name;
@@ -45,19 +41,6 @@ function load_home_page() {
                   <div class="post_content">` + $message + `</div>
                   <a href="#" class="post_comment"><i>comment</i></a>
                   </li>`;
-
-
-
-                  // if (document.getElementById("login_uname").value == data.rows[i].username &&
-                  // document.getElementById("login_psw").value == data.rows[i].password) {
-                  //    alert("Checked user against the database!! Logged in");
-                  //    val = true;
-                  //    valid_user = 1;
-                  //    // profile_pic = `<p>` + $display_name + `</p>`;
-                  // }
-                  // else{
-                  //    console.log("IN else statement. Couldn't find match in Database");
-                  // }
                }
 
            if (data.val == "0") {
