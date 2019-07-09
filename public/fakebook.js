@@ -24,7 +24,7 @@ function load_home_page() {
    var profile_pic = ""
    $.get("/user", function (data, status) {
       if (status == "success") {
-               // alert(JSON.stringify(data))
+               alert(JSON.stringify(data))
                for(var i = 0; i < data.result.rows.length; i++){
                   $display_name = data.result.rows[i].display_name;
                   $time_day = data.result.rows[i].message_time.substring(8, 10);
@@ -51,6 +51,7 @@ function load_home_page() {
                document.getElementById("form").style.display = "none";
                document.getElementById("content").style.display = "block";
                document.getElementById("content").innerHTML = html;
+
                // document.getElementById("profile_picture").innerHTML = html;
 
                document.getElementById("main_head").style.display = "flex";
