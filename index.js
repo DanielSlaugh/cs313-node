@@ -60,8 +60,9 @@ express()
           }
           else{
            req.session.current_display_name = result.rows[0].display_name;
+           var current_display_name = req.session.current_display_name;
            req.session.val = 1;
-           res.json({ val: 1, current_display_name: req.session.current_display_name})
+           res.json({ val: 1, current_display_name: current_display_name})
          }
       })
   })
