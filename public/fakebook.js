@@ -124,7 +124,7 @@ function goto_comments(i) {
                   </div>
                   <div class="post_content">` + $message + `</div>
                   <a class="post_comment" onclick="goto_comments(`+ count + `)"><i>comment</i></a>
-                  </li>`;
+                  </li><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>`;
                   count++;
 
             }
