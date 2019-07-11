@@ -62,7 +62,7 @@ function load_home_page() {
                   <p>` + $month_array[parseInt($time_month)] + ` ` + $time_day + `, ` + $time_year + `</p>
                   </div>
                   <div class="post_content">` + $message + `</div>
-                  <a href="#" class="post_comment"><i>comment</i></a>
+                  <a class="post_comment" onclick="goto_comments()"><i>comment</i></a>
                   </li>`;
                }
 
@@ -93,6 +93,10 @@ function load_home_page() {
             }
       }
    })
+}
+
+function goto_comments(){
+   console.log("in Comments")
 }
 
 function load_comment_page() {
