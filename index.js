@@ -39,7 +39,7 @@ express()
       res.render("home");
 
     })
-  .get("/user", (req, res) =>{
+  .post("/user", {}, (req, res) =>{
       var sql = "SELECT u.username, u.password, u.display_name, m.message_text, m.message_time FROM users u JOIN message m ON u.id = m.user_id ORDER BY m.message_time DESC";
       pool.query(sql, function(err, result) {
       res.json({result: result, val: req.session.val || 0});
@@ -56,9 +56,6 @@ express()
       var sql = "SELECT u.id, u.display_name, u.username, u.password FROM users u WHERE u.username='" + uname + "' AND u.password='" + psw + "'";
       pool.query(sql, function (err, result) {
          var length = result.rows.length
-         console.log(result.rows)
-         console.log(uname)
-         console.log(psw)
          if (length == 0) {
            req.session.val = 0;
            res.json({val: 0})

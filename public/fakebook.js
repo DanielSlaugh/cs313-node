@@ -14,8 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function login(){
   var uname = document.getElementById("login_uname").value
   var psw =  document.getElementById("login_psw").value
-  var poop
-   $.post("/login", {uname: uname, psw: psw, poop: 3}, function(data, status){
+   $.post("/login", {uname: uname, psw: psw}, function(data, status){
       load_home_page()
    })
 }
@@ -46,7 +45,7 @@ function sign_up() {
 function load_home_page() {
    var html = ""
    var profile_pic = ""
-   $.get("/user", function (data, status) {
+   $.post("/user", function (data, status) {
       if (status == "success") {
                //alert(JSON.stringify(data))
                for(var i = 0; i < data.result.rows.length; i++){
