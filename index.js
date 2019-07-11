@@ -65,6 +65,7 @@ express()
           }
           else{
            req.session.current_display_name = result.rows[0].display_name;
+           req.session.current_id = result.rows[0].id;
            var current_display_name = req.session.current_display_name;
            req.session.val = 1;
            res.json({ val: 1, current_display_name: current_display_name})
@@ -86,11 +87,11 @@ express()
   .post("/new_message", (req, res) => {
     var new_message = req.body.message_text
     console.log(new_message)
-    // var sql = "INSERT INTO users (username, password, display_name) VALUES ('" + uname + "', '" + psw + "', '" + dname + "')";
-    // pool.query(sql, function (err, result) {
-    //   res.json({ val: 1 })
-    // })
-    res.json({new_message: new_message})
+    var sql = "INSERT INTO message (user_id, message_text) VALUES ('" + req.session.current_id + "', '" + new_message + "')";
+    pool.query(sql, function (err, result) {
+      res.json({new_message: new_message})
+      // res.json({ val: 1 })
+    })
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
