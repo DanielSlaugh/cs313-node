@@ -45,7 +45,7 @@ function sign_up() {
 function load_home_page() {
    var html = ""
    var profile_pic = ""
-   $.post("/user", function (data, status) {
+   $.post("/user", {}, function (data, status) {
       if (status == "success") {
                //alert(JSON.stringify(data))
                for(var i = 0; i < data.result.rows.length; i++){
