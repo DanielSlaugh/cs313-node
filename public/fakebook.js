@@ -19,7 +19,7 @@ function login(){
    })
 }
 
-function login() {
+function sign_up() {
    var uname = document.getElementById("sign_up_uname").value
    var psw = document.getElementById("sign_up_psw").value
    var dname = document.getElementById("sign_up_dname").value
