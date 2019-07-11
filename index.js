@@ -90,7 +90,7 @@ express()
     // pool.query(sql, function (err, result) {
     //   res.json({ val: 1 })
     // })
-    res.json()
+    res.json({new_message: new_message})
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
