@@ -48,6 +48,7 @@ function load_home_page() {
    $.post("/user", {}, function (data, status) {
       if (status == "success") {
                //alert(JSON.stringify(data))
+               var count = 0;
                for(var i = 0; i < data.result.rows.length; i++){
                   $display_name = data.result.rows[i].display_name;
                   $time_day = data.result.rows[i].message_time.substring(8, 10);
@@ -62,8 +63,9 @@ function load_home_page() {
                   <p>` + $month_array[parseInt($time_month)] + ` ` + $time_day + `, ` + $time_year + `</p>
                   </div>
                   <div class="post_content">` + $message + `</div>
-                  <a class="post_comment" onclick="goto_comments()"><i>comment</i></a>
+                  <a class="post_comment" onclick="goto_comments(`+ count +`)"><i>comment</i></a>
                   </li>`;
+                  count++;
                }
 
            if (data.val == "0") {
@@ -95,8 +97,40 @@ function load_home_page() {
    })
 }
 
-function goto_comments(){
-   console.log("in Comments")
+function goto_comments(i) {
+   console.log("in Comments");
+   document.getElementById("form").style.display = "none";
+   document.getElementById("main_head").style.display = "none";
+   document.getElementById("login_form").style.display = "none";
+   document.getElementById("sign_up_form").style.display = "none";
+   document.getElementById("new_user_message").style.display = "none";
+
+   var html = ""
+   $.post("/user", {}, function (data, status) {
+      if (status == "success") {
+         //alert(JSON.stringify(data))
+         var count = 0;
+            $display_name = data.result.rows[i].display_name;
+            $time_day = data.result.rows[i].message_time.substring(8, 10);
+            $time_month = data.result.rows[i].message_time.substring(5, 7);
+            $time_year = data.result.rows[i].message_time.substring(0, 4);
+            $month_array = ['No_zero', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            $message = data.result.rows[i].message_text;
+
+            html += `<li class="post">
+            <div class="post__title">
+            <h3>` + $display_name + `</h3>
+            <p>` + $month_array[parseInt($time_month)] + ` ` + $time_day + `, ` + $time_year + `</p>
+                  </div>
+                  <div class="post_content">` + $message + `</div>
+                  <a class="post_comment" onclick="goto_comments(`+ count + `)"><i>comment</i></a>
+                  </li>`;
+                  count++;
+
+            }
+            document.getElementById("content").style.display = "block";
+            document.getElementById("content").innerHTML = html;
+      })
 }
 
 function load_comment_page() {
