@@ -76,12 +76,12 @@ express()
     var psw = req.body.psw
     var dname = req.body.dname
     var sql = "INSERT INTO users (username, password, display_name) VALUES (" + uname + ", " + psw + ", " + dname + ")";
-    // pool.query(sql, function (err, result) {
-    //   console.log(result.rows)
-    //   console.log(uname)
-    //   console.log(psw)
+    pool.query(sql, function (err, result) {
+      console.log(result.rows)
+      console.log(uname)
+      console.log(psw)
       res.json({ val: 1})
-    // })
+    })
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
