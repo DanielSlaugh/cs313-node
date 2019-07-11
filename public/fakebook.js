@@ -19,6 +19,15 @@ function login(){
    })
 }
 
+function new_message() {
+   var message_text = document.getElementById("message_text").value
+   console.log(message_text)
+   $.post("/new_message", { message_text: message_text}, function (data, status) {
+      console.log("Back from /new_message")
+      load_home_page()
+   })
+}
+
 function sign_up() {
    var uname = document.getElementById("sign_up_uname").value
    var psw = document.getElementById("sign_up_psw").value

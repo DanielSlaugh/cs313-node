@@ -83,9 +83,33 @@ express()
       res.json({ val: 1})
     })
   })
+  .post("/new_message", (req, res) => {
+    var new_message = req.body.message_text
+    console.log(new_message)
+    // var sql = "INSERT INTO users (username, password, display_name) VALUES ('" + uname + "', '" + psw + "', '" + dname + "')";
+    // pool.query(sql, function (err, result) {
+    //   res.json({ val: 1 })
+    // })
+    res.json()
+  })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// OLD CODE FOR 313 ASSIGNMENTS
 
 
 showTimes = () => {
