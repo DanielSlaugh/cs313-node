@@ -71,7 +71,7 @@ function load_home_page() {
               $.get("/getCurrentUser", function (data, status) {
                  if (status == "success") {
                     var username = data.current_display_name;
-                    alert(username);
+                  //   alert(username);
                     document.getElementById("profile_picture").innerHTML = username;
                  }
                })
