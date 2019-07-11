@@ -44,6 +44,15 @@
                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </form>
 
+            <!-- Create a new Comment -->
+            <form id="new_comment">
+               <!-- <input type="hidden" name="current_id" id="current_id" value="<?php echo $current_id ?>"> -->
+               <textarea class="textarea" id="message_text" cols="30" rows="10" placeholder="Write a comment..."
+                  name="message_text"></textarea>
+               <input class="submit" type="button" value="Post" onclick="new_comment()">
+               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </form>
+
             <!-- Login Page -->
             <form class="full_width" id="login_form">
                <label for="uname"><b>Username</b></label><br>

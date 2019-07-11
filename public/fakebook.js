@@ -91,6 +91,7 @@ function load_home_page() {
                document.getElementById("login_form").style.display = "none";
                document.getElementById("sign_up_form").style.display = "none";
                document.getElementById("new_user_message").style.display = "none";
+               document.getElementById("new_comment").style.display = "none";
                console.log("there is a valid user");
             }
       }
@@ -123,18 +124,21 @@ function goto_comments(i) {
             <p>` + $month_array[parseInt($time_month)] + ` ` + $time_day + `, ` + $time_year + `</p>
                   </div>
                   <div class="post_content">` + $message + `</div>
-                  <a class="post_comment" onclick="goto_comments(`+ count + `)"><i>comment</i></a>
                   </li><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>`;
                   count++;
 
+
             }
-            document.getElementById("content").style.display = "block";
-            document.getElementById("content").innerHTML = html;
+      document.getElementById("content").style.display = "block";
+      document.getElementById("content").innerHTML = html;
+      document.getElementById("new_comment").style.display = "block";
+
       })
 }
 
 function load_comment_page() {
    document.getElementById("form").style.display = "block";
+   document.getElementById("new_comment").style.display = "none";
    document.getElementById("content").style.display = "none";
    document.getElementById("main_head").style.display = "none";
    document.getElementById("login_form").style.display = "none";
@@ -143,7 +147,7 @@ function load_comment_page() {
 }
 
 function load_profile_page() {
-
+   document.getElementById("new_comment").style.display = "none";
    document.getElementById("form").style.display = "none";
    document.getElementById("content").style.display = "none";
    document.getElementById("main_head").style.display = "none";
@@ -153,6 +157,7 @@ function load_profile_page() {
 }
 
 function load_sign_up_page() {
+   document.getElementById("new_comment").style.display = "none";
    document.getElementById("form").style.display = "none";
    document.getElementById("content").style.display = "none";
    document.getElementById("main_head").style.display = "none";
