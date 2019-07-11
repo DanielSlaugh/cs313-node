@@ -27,6 +27,14 @@ function new_message() {
       load_home_page()
    })
 }
+function new_comment() {
+   var comment_text = document.getElementById("comment_text").value
+   console.log(comment_text)
+   $.post("/new_comment", { comment_text: comment_text }, function (data, status) {
+      console.log("Back from /new_comment")
+      load_home_page()
+   })
+}
 
 function sign_up() {
    var uname = document.getElementById("sign_up_uname").value
@@ -107,10 +115,10 @@ function goto_comments(i) {
    document.getElementById("new_user_message").style.display = "none";
 
    var html = ""
+   var message_id
    $.post("/user", {}, function (data, status) {
       if (status == "success") {
-         //alert(JSON.stringify(data))
-         var count = 0;
+            message_id = data.result.rows[i].id;
             $display_name = data.result.rows[i].display_name;
             $time_day = data.result.rows[i].message_time.substring(8, 10);
             $time_month = data.result.rows[i].message_time.substring(5, 7);
@@ -124,16 +132,16 @@ function goto_comments(i) {
             <p>` + $month_array[parseInt($time_month)] + ` ` + $time_day + `, ` + $time_year + `</p>
                   </div>
                   <div class="post_content">` + $message + `</div>
-                  </li><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>`;
-                  count++;
-
-
+                  </li>`;
             }
-      document.getElementById("content").style.display = "block";
-      document.getElementById("content").innerHTML = html;
-      document.getElementById("new_comment").style.display = "block";
+            document.getElementById("content").style.display = "block";
+            document.getElementById("content").innerHTML = html;
+            document.getElementById("new_comment").style.display = "block";
 
-      })
+         })
+   $.post("/set_message_id", {message_id: message_id}, function (data, status) {
+         console.log("Back from set_message_id()")
+   })
 }
 
 function load_comment_page() {

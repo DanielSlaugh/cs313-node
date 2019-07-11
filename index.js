@@ -40,7 +40,7 @@ express()
 
     })
   .post("/user", (req, res) =>{
-      var sql = "SELECT u.username, u.password, u.display_name, m.message_text, m.message_time FROM users u JOIN message m ON u.id = m.user_id ORDER BY m.message_time DESC";
+      var sql = "SELECT u.username, u.password, u.display_name, m.message_text, m.message_time, m.id FROM users u JOIN message m ON u.id = m.user_id ORDER BY m.message_time DESC";
       pool.query(sql, function(err, result) {
       res.json({result: result, val: req.session.val || 0});
       })
@@ -48,6 +48,12 @@ express()
   .post("/getCurrentUser", (req, res) => {
     var current_display_name = req.session.current_display_name
     res.json({current_display_name: current_display_name || "Guest"});
+
+  })
+  .post("/set_message_id", (req, res) => {
+    req.session.message_id = req.body.message_id
+    var message_id = req.session.message_id
+    res.json({ message_id: message_id});
 
   })
   .post("/login", (req, res) => {
@@ -85,6 +91,14 @@ express()
     var sql = "INSERT INTO message (user_id, message_text) VALUES ('" + req.session.current_id + "', '" + new_message + "')";
     pool.query(sql, function (err, result) {
        res.json({new_message: new_message})
+    })
+  })
+  .post("/new_comment", (req, res) => {
+    var new_comment = req.body.comment_text
+    console.log(new_comment)
+    var sql = "INSERT INTO comment (message_id, comment_text) VALUES ('" + req.session.message_id + "', '" + new_comment + "')";
+    pool.query(sql, function (err, result) {
+      res.json({ new_message: new_message })
     })
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
