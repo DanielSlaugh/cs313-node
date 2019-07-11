@@ -54,8 +54,12 @@ function load_home_page() {
 
             //   var username = "<%= Session['current_display_name'] %>";
             //   var username = sessionStorage.getItem("current_display_name");
-              var username = data.current_display_name;
-              alert(username);
+              $.get("/getCurrentUser", function (data, status) {
+                 if (status == "success") {
+                    var username = data.current_display_name;
+                    alert(username);
+                 }
+               })
                // document.getElementById("profile_picture").innerHTML = html;
 
                document.getElementById("main_head").style.display = "flex";
@@ -66,9 +70,6 @@ function load_home_page() {
             }
       }
    })
-
-
-
 }
 
 function load_comment_page() {

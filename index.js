@@ -45,6 +45,11 @@ express()
       res.json({result: result, val: req.session.val || 0});
       })
   })
+  .get("/getCurrentUser", (req, res) => {
+    var current_display_name = req.session.current_display_name
+    res.json({current_display_name: current_display_name || "Guest"});
+
+  })
   .post("/login", (req, res) => {
       var uname = req.body.uname
       var psw = req.body.psw
