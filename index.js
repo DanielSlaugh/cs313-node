@@ -45,7 +45,7 @@ express()
       res.json({result: result, val: req.session.val || 0});
       })
   })
-  .get("/getCurrentUser", (req, res) => {
+  .post("/getCurrentUser", (req, res) => {
     var current_display_name = req.session.current_display_name
     res.json({current_display_name: current_display_name || "Guest"});
 
@@ -87,8 +87,7 @@ express()
     console.log(new_message)
     var sql = "INSERT INTO message (user_id, message_text) VALUES ('" + req.session.current_id + "', '" + new_message + "')";
     pool.query(sql, function (err, result) {
-      res.json({new_message: new_message})
-      // res.json({ val: 1 })
+       res.json({new_message: new_message})
     })
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));

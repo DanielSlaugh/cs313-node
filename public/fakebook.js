@@ -77,7 +77,7 @@ function load_home_page() {
 
             //   var username = "<%= Session['current_display_name'] %>";
             //   var username = sessionStorage.getItem("current_display_name");
-              $.get("/getCurrentUser", function (data, status) {
+              $.post("/getCurrentUser", {}, function (data, status) {
                  if (status == "success") {
                     var username = data.current_display_name;
                   //   alert(username);
