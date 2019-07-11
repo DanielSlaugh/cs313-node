@@ -97,7 +97,7 @@ express()
     var new_comment = req.body.comment_text
     console.log(new_comment)
     // var sql = "INSERT INTO comment (message_id, comment_text) VALUES (" + req.session.message_id + ", '" + new_comment + "')";
-    var sql = "INSERT INTO comment (message_id, comment_text) VALUES (" + req.session.message_id + ", '" + "A SECOND little HARD CODED MESSAGE" + "')";
+    var sql = "INSERT INTO comment (message_id, comment_text) VALUES (" + req.session.message_id + ", '" + new_comment + "')";
     pool.query(sql, function (err, result) {
       res.json({ new_comment: new_comment })
     })
