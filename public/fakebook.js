@@ -23,7 +23,11 @@ function sign_up() {
    var uname = document.getElementById("sign_up_uname").value
    var psw = document.getElementById("sign_up_psw").value
    var dname = document.getElementById("sign_up_dname").value
+   console.log(uname)
+   console.log(psw)
+   console.log(dname)
    $.post("/sign_up", {uname: uname, psw: psw, dname: dname}, function (data, status) {
+      console.log("Back from /Sign_up")
       load_sign_up_page()
    })
 }
