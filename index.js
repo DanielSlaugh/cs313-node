@@ -98,7 +98,7 @@ express()
     console.log(new_comment)
     var sql = "INSERT INTO comment (message_id, comment_text) VALUES ('" + req.session.message_id + "', '" + new_comment + "')";
     pool.query(sql, function (err, result) {
-      res.json({ new_message: new_message })
+      res.json({ new_comment: new_comment })
     })
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
