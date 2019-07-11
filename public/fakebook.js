@@ -21,6 +21,7 @@ function login(){
 
 function load_home_page() {
    var html = ""
+   var current_user_html = ""
    var profile_pic = ""
    $.get("/user", function (data, status) {
       if (status == "success") {
@@ -58,6 +59,7 @@ function load_home_page() {
                  if (status == "success") {
                     var username = data.current_display_name;
                     alert(username);
+                    document.getElementById("profile_picture").innerHTML = username;
                  }
                })
                // document.getElementById("profile_picture").innerHTML = html;
