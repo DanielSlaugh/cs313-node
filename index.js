@@ -75,7 +75,7 @@ express()
     var uname = req.body.uname
     var psw = req.body.psw
     var dname = req.body.dname
-    // var sql = "INSERT INTO users (username, password, display_name) VALUES (" + uname + ", " + psw + ", " + dname + ")";
+    var sql = "INSERT INTO users (username, password, display_name) VALUES (" + uname + ", " + psw + ", " + dname + ")";
     // pool.query(sql, function (err, result) {
     //   console.log(result.rows)
     //   console.log(uname)
