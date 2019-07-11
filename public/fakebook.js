@@ -28,7 +28,8 @@ function sign_up() {
    console.log(dname)
    $.post("/sign_up", {uname: uname, psw: psw, dname: dname}, function (data, status) {
       console.log("Back from /Sign_up")
-      load_sign_up_page()
+      alert("Your account has been created! Sign in so you can have fun with your friends")
+      load_home_page()
    })
 }
 
@@ -105,12 +106,6 @@ function load_profile_page() {
 }
 
 function load_sign_up_page() {
-   var url = document.URL;
-   if (url.includes("set")) {
-      console.log("Everything totally works and Daniel is smart");
-      // document.getElementById("new_user_message").style.display = "inline-block";
-      alert("Your account has been created! Sign in so you can have fun with your friends")
-   }
    document.getElementById("form").style.display = "none";
    document.getElementById("content").style.display = "none";
    document.getElementById("main_head").style.display = "none";
