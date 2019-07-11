@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
 function login(){
   var uname = document.getElementById("login_uname").value
   var psw =  document.getElementById("login_psw").value
-   $.post("/login", {uname: uname, psw: psw}, function(data, status){
+  var poop
+   $.post("/login", {uname: uname, psw: psw, poop: 3}, function(data, status){
       load_home_page()
    })
 }
