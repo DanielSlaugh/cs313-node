@@ -80,7 +80,7 @@ express()
     //   console.log(result.rows)
     //   console.log(uname)
     //   console.log(psw)
-      // res.json({ val: 1, current_display_name: current_display_name })
+      res.json({ val: 1})
     // })
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
