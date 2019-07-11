@@ -19,9 +19,17 @@ function login(){
    })
 }
 
+function login() {
+   var uname = document.getElementById("sign_up_uname").value
+   var psw = document.getElementById("sign_up_psw").value
+   var dname = document.getElementById("sign_up_dname").value
+   $.post("/sign_up", {uname: uname, psw: psw, dname: dname}, function (data, status) {
+      load_sign_up_page()
+   })
+}
+
 function load_home_page() {
    var html = ""
-   var current_user_html = ""
    var profile_pic = ""
    $.get("/user", function (data, status) {
       if (status == "success") {
@@ -62,7 +70,6 @@ function load_home_page() {
                     document.getElementById("profile_picture").innerHTML = username;
                  }
                })
-               // document.getElementById("profile_picture").innerHTML = html;
 
                document.getElementById("main_head").style.display = "flex";
                document.getElementById("login_form").style.display = "none";
