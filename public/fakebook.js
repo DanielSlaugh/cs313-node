@@ -119,6 +119,10 @@ function goto_comments(i) {
    $.post("/user", {}, function (data, status) {
       if (status == "success") {
             message_id = data.result.rows[i].id;
+            $.post("/set_message_id", { message_id: message_id }, function (data, status) {
+               console.log("Back from /set_message_id")
+               console.log(message_id)
+            })
             console.log("in goto_comments(), message_id: " + message_id)
             $display_name = data.result.rows[i].display_name;
             $time_day = data.result.rows[i].message_time.substring(8, 10);
@@ -140,10 +144,7 @@ function goto_comments(i) {
             document.getElementById("new_comment").style.display = "block";
 
          })
-   $.post("/set_message_id", {message_id: message_id}, function (data, status) {
-         console.log("Back from /set_message_id")
-         console.log(message_id)
-   })
+
 }
 
 function load_comment_page() {
