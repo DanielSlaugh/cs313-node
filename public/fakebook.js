@@ -115,20 +115,21 @@ function goto_comments(i) {
    document.getElementById("new_user_message").style.display = "none";
 
    var html = ""
-   var message_id
+   var message_id = ""
+   var comments_feed = ""
+   var current_user_id = ""
    $.post("/user", {}, function (data, status) {
       alert(JSON.stringify(data))
       if (status == "success") {
             message_id = data.result.rows[i].id;
          $.post("/getCommentFeed", { message_id: message_id }, function (comment_data, status) {
             console.log("Back from /getCommetFeed")
-            var comments_feed = ""
-            var current_user_id = ""
+
             console.log("Begin comments feed")
             alert(JSON.stringify(comment_data))
             for (var k = 0; k < comment_data.result.rows.length; k++) {
                if (message_id == comment_data.result.rows[k].id) {
-                  var current_user_id = comment_data.result.rows[k].user_id;
+                  current_user_id = comment_data.result.rows[k].user_id;
                   var current_user_comment = comment_data.result.rows[k].comment_text;
 
                   $.post("/getUserList", {current_user_id: current_user_id}, function (users_data, status) {
