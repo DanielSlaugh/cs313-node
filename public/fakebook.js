@@ -145,6 +145,7 @@ function goto_comments(i) {
                   })
                }
             }
+            document.getElementById("comment_feed").innerHTML = comments_feed;
 
          })
          $.post("/set_message_id", { message_id: message_id }, function (message_data, status) {
@@ -169,7 +170,6 @@ function goto_comments(i) {
          }
 
             document.getElementById("comment_feed").style.display = "block";
-            document.getElementById("comment_feed").innerHTML = comments_feed;
             document.getElementById("content").style.display = "block";
             document.getElementById("content").innerHTML = html;
             document.getElementById("new_comment").style.display = "block";
