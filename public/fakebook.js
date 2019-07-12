@@ -119,7 +119,23 @@ function goto_comments(i) {
    $.post("/user", {}, function (data, status) {
       if (status == "success") {
             message_id = data.result.rows[i].id;
-            $.post("/set_message_id", { message_id: message_id }, function (data, status) {
+         $.post("/getCommentFeed", { message_id: message_id }, function (comment_data, status) {
+            console.log("Back from /getCommetFeed")
+            var comments_feed = ""
+            for (var k = 0; k < data.result.rows.length; i++) {
+               var comment_display_name = comment_data.result.rows[k].display_name;
+               var current_comment = comment_data.result.rows[k].display_name;
+               comments_feed += `<li class="post">
+                  <div class="post__title">
+                  <h3>` + comment_display_name + `</h3>
+                        </div>
+                        <div class="post_content">` + current_comment + `</div>
+                        </li>`;
+            }
+            document.getElementById("comment_feed").style.display = "block";
+
+         })
+            $.post("/set_message_id", { message_id: message_id }, function (message_data, status) {
                console.log("Back from /set_message_id")
                console.log(message_id)
             })
