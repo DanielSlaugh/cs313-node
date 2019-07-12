@@ -46,7 +46,7 @@ express()
       })
   })
   .post("/getCommentFeed", (req, res) => {
-    var sql = "SELECT m.message_text, m.message_time, m.id, c.comment_text, c.user_id FROM comment c JOIN message m ON c.message_id = m.id WHERE m.id='"+ +"' ORDER BY m.message_time DESC";
+    var sql = "SELECT m.message_text, m.message_time, m.id, c.comment_text, c.user_id FROM comment c JOIN message m ON c.message_id = m.id ORDER BY m.message_time DESC";
     // var sql = "SELECT m.message_text, m.message_time, m.id, c.comment_text FROM comment c JOIN message m ON c.message_id = m.id WHERE m.id='4' ORDER BY m.message_time DESC";
     pool.query(sql, function (err, result) {
       res.json({ result: result, val: req.session.val || 0 });
