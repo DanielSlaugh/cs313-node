@@ -117,6 +117,7 @@ function goto_comments(i) {
    var html = ""
    var message_id
    $.post("/user", {}, function (data, status) {
+      alert(JSON.stringify(data))
       if (status == "success") {
             message_id = data.result.rows[i].id;
          $.post("/getCommentFeed", { message_id: message_id }, function (comment_data, status) {
@@ -141,14 +142,13 @@ function goto_comments(i) {
 
                }
             }
-            document.getElementById("comment_feed").style.display = "block";
 
          })
-            $.post("/set_message_id", { message_id: message_id }, function (message_data, status) {
-               console.log("Back from /set_message_id")
-               console.log(message_id)
-            })
-            console.log("in goto_comments(), message_id: " + message_id)
+         $.post("/set_message_id", { message_id: message_id }, function (message_data, status) {
+            console.log("Back from /set_message_id")
+            console.log(message_id)
+         })
+         console.log("in goto_comments(), message_id: " + message_id)
             $display_name = data.result.rows[i].display_name;
             $time_day = data.result.rows[i].message_time.substring(8, 10);
             $time_month = data.result.rows[i].message_time.substring(5, 7);
@@ -160,10 +160,12 @@ function goto_comments(i) {
             <div class="post__title">
             <h3>` + $display_name + `</h3>
             <p>` + $month_array[parseInt($time_month)] + ` ` + $time_day + `, ` + $time_year + `</p>
-                  </div>
-                  <div class="post_content">` + $message + `</div>
-                  </li>`;
-            }
+            </div>
+            <div class="post_content">` + $message + `</div>
+            </li>`;
+         }
+
+            document.getElementById("comment_feed").style.display = "block";
             document.getElementById("content").style.display = "block";
             document.getElementById("content").innerHTML = html;
             document.getElementById("new_comment").style.display = "block";
