@@ -146,6 +146,7 @@ function goto_comments(i) {
                   })
                }
             }
+            console.log("Comments Feed: " + comments_feed)
             document.getElementById("comment_feed").innerHTML = comments_feed;
 
          })
