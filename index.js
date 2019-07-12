@@ -54,14 +54,9 @@ express()
   })
   .post("/getUserList", (req, res) => {
     var current_id = req.body.current_user_id
-    var current_comment = req.body.current_user_comment
-
     var sql = "SELECT * FROM users WHERE id='" + current_id + "'";
-    var sql_two = "SELECT * FROM comment WHERE comment_text='"+ current_comment + "'";
     pool.query(sql, function (err, result) {
-      pool.query(sql_two, function (err, result2) {
-        res.json({ result: result, result2: result2});
-      })
+      res.json({ result: result});
     })
   })
   .post("/getCurrentUser", (req, res) => {

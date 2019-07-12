@@ -130,11 +130,10 @@ function goto_comments(i) {
             for (var k = 0; k < comment_data.result.rows.length; k++) {
                if (message_id == comment_data.result.rows[k].id) {
                   current_user_id = comment_data.result.rows[k].user_id;
-                  current_user_comment = comment_data.result.rows[k].comment_text;
+                  current_user_comment = comment_data.result.rows[current_user_id].comment_text;
 
-                  $.post("/getUserList", {current_user_id: current_user_id, current_user_comment: current_user_comment}, function (users_data, status) {
+                  $.post("/getUserList", {current_user_id: current_user_id}, function (users_data, status) {
                      var comment_display_name = users_data.result.rows[0].display_name;
-                     var user_comment = users_data.result2.rows[0].display_name;
                      // var current_comment = comment_data.result.rows[k].display_name;
                      console.log("Display name: " + comment_display_name)
                      console.log("Their comment: " + current_user_comment)
@@ -142,7 +141,7 @@ function goto_comments(i) {
                      <div class="post__title">
                      <h3>` + comment_display_name + `</h3>
                      </div>
-                     <div class="post_content">` + user_comment + `</div>
+                     <div class="post_content">` + current_user_comment + `</div>
                      </li>`;
                      // console.log("Comments Feed: " + comments_feed)
                      document.getElementById("comment_feed").innerHTML = comments_feed;
