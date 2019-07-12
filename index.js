@@ -52,6 +52,13 @@ express()
       res.json({ result: result, val: req.session.val || 0 });
     })
   })
+  .post("/getUserList", (req, res) => {
+    var current_id = req.body.current_user_id
+    var sql = "SELECT * FROM users WHERE id='"+ current_id + "'";
+    pool.query(sql, function (err, result) {
+      res.json({ result: result});
+    })
+  })
   .post("/getCurrentUser", (req, res) => {
     var current_display_name = req.session.current_display_name
     res.json({current_display_name: current_display_name || "Guest"});
