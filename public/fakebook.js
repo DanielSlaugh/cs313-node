@@ -124,7 +124,7 @@ function goto_comments(i) {
             var comments_feed = ""
             console.log("Begin comments feed")
             alert(JSON.stringify(comment_data))
-            for (var k = 0; k < comment_data.result.rows.length; i++) {
+            for (var k = 0; k < comment_data.result.rows.length; k++) {
                if (message_id == comment_data.result.rows[k].id) {
                   var current_user_id = comment_data.result.rows[k].user_id;
                   var comment_display_name = data.result.rows[current_user_id].display_name;
