@@ -123,14 +123,15 @@ function goto_comments(i) {
          $.post("/getCommentFeed", { message_id: message_id }, function (comment_data, status) {
             console.log("Back from /getCommetFeed")
             var comments_feed = ""
+            var current_user_id = ""
             console.log("Begin comments feed")
             alert(JSON.stringify(comment_data))
             for (var k = 0; k < comment_data.result.rows.length; k++) {
                if (message_id == comment_data.result.rows[k].id) {
-                  var current_user_comment = comment_data.result.rows[k].comment_text;
 
-                  var current_user_id = comment_data.result.rows[k].user_id;
                   $.post("/getUserList", {current_user_id: current_user_id}, function (users_data, status) {
+                     var current_user_comment = comment_data.result.rows[k].comment_text;
+                     var current_user_id = comment_data.result.rows[k].user_id;
                      var comment_display_name = users_data.result.rows[0].display_name;
                      // var current_comment = comment_data.result.rows[k].display_name;
                      console.log("Display name: " + comment_display_name)
@@ -168,6 +169,7 @@ function goto_comments(i) {
          }
 
             document.getElementById("comment_feed").style.display = "block";
+            document.getElementById("comment_feed").innerHTML = comments_feed;
             document.getElementById("content").style.display = "block";
             document.getElementById("content").innerHTML = html;
             document.getElementById("new_comment").style.display = "block";
