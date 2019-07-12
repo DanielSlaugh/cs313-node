@@ -123,6 +123,7 @@ function goto_comments(i) {
             console.log("Back from /getCommetFeed")
             var comments_feed = ""
             console.log("Begin comments feed")
+            alert(JSON.stringify(comment_data))
             for (var k = 0; k < comment_data.result.rows.length; i++) {
                if (message_id == comment_data.result.rows[k].id) {
                   var current_user_id = comment_data.result.rows[k].user_id;
