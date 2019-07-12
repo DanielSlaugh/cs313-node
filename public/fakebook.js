@@ -143,11 +143,11 @@ function goto_comments(i) {
                      </div>
                      <div class="post_content">` + current_user_comment + `</div>
                      </li>`;
+                     console.log("Comments Feed: " + comments_feed)
+                     document.getElementById("comment_feed").innerHTML = comments_feed;
                   })
                }
             }
-            console.log("Comments Feed: " + comments_feed)
-            document.getElementById("comment_feed").innerHTML = comments_feed;
 
          })
          $.post("/set_message_id", { message_id: message_id }, function (message_data, status) {
