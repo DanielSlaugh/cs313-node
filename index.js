@@ -40,13 +40,13 @@ express()
 
     })
   .post("/user", (req, res) =>{
-      var sql = "SELECT u.username, u.password, u.display_name, m.message_text, m.message_time, m.id FROM users u JOIN message m ON u.id = m.user_id ORDER BY m.message_time DESC";
+      var sql = "SELECT u.id, u.username, u.password, u.display_name, m.message_text, m.message_time, m.id FROM users u JOIN message m ON u.id = m.user_id ORDER BY m.message_time DESC";
       pool.query(sql, function(err, result) {
       res.json({result: result, val: req.session.val || 0});
       })
   })
   .post("/getCommentFeed", (req, res) => {
-    var sql = "SELECT m.message_text, m.message_time, m.id, c.comment_text FROM comment c JOIN message m ON c.message_id = m.id WHERE m.id='"+ +"' ORDER BY m.message_time DESC";
+    var sql = "SELECT m.message_text, m.message_time, m.id, c.comment_text, c.user_id FROM comment c JOIN message m ON c.message_id = m.id WHERE m.id='"+ +"' ORDER BY m.message_time DESC";
     // var sql = "SELECT m.message_text, m.message_time, m.id, c.comment_text FROM comment c JOIN message m ON c.message_id = m.id WHERE m.id='4' ORDER BY m.message_time DESC";
     pool.query(sql, function (err, result) {
       res.json({ result: result, val: req.session.val || 0 });

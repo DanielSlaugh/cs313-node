@@ -122,15 +122,23 @@ function goto_comments(i) {
          $.post("/getCommentFeed", { message_id: message_id }, function (comment_data, status) {
             console.log("Back from /getCommetFeed")
             var comments_feed = ""
-            for (var k = 0; k < data.result.rows.length; i++) {
-               var comment_display_name = comment_data.result.rows[k].display_name;
-               var current_comment = comment_data.result.rows[k].display_name;
-               comments_feed += `<li class="post">
-                  <div class="post__title">
-                  <h3>` + comment_display_name + `</h3>
-                        </div>
-                        <div class="post_content">` + current_comment + `</div>
-                        </li>`;
+            console.log("Begin comments feed")
+            for (var k = 0; k < comment_data.result.rows.length; i++) {
+               if (message_id == comment_data.result.rows[k].id) {
+                  var current_user_id = comment_data.result.rows[k].user_id;
+                  var comment_display_name = data.result.rows[current_user_id].display_name;
+                  var current_user_comment = comment_data.result.rows[k].comment_text;
+                  // var current_comment = comment_data.result.rows[k].display_name;
+                  console.log("Display name: " + comment_display_name)
+                  console.log("Their comment: " + current_user_comment)
+                  comments_feed += `<li class="post">
+                     <div class="post__title">
+                     <h3>` + comment_display_name + `</h3>
+                           </div>
+                           <div class="post_content">` + current_user_comment + `</div>
+                           </li>`;
+
+               }
             }
             document.getElementById("comment_feed").style.display = "block";
 
