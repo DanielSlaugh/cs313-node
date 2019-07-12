@@ -118,19 +118,19 @@ function goto_comments(i) {
    var message_id = ""
    var comments_feed = ""
    var current_user_id = ""
+   var current_user_comment = ""
    $.post("/user", {}, function (data, status) {
-      alert(JSON.stringify(data))
+      // alert(JSON.stringify(data))
       if (status == "success") {
             message_id = data.result.rows[i].id;
          $.post("/getCommentFeed", { message_id: message_id }, function (comment_data, status) {
             console.log("Back from /getCommetFeed")
-
             console.log("Begin comments feed")
             alert(JSON.stringify(comment_data))
             for (var k = 0; k < comment_data.result.rows.length; k++) {
                if (message_id == comment_data.result.rows[k].id) {
                   current_user_id = comment_data.result.rows[k].user_id;
-                  var current_user_comment = comment_data.result.rows[k].comment_text;
+                  current_user_comment = comment_data.result.rows[k].comment_text;
 
                   $.post("/getUserList", {current_user_id: current_user_id}, function (users_data, status) {
                      var comment_display_name = users_data.result.rows[0].display_name;
@@ -143,7 +143,7 @@ function goto_comments(i) {
                      </div>
                      <div class="post_content">` + current_user_comment + `</div>
                      </li>`;
-                     console.log("Comments Feed: " + comments_feed)
+                     // console.log("Comments Feed: " + comments_feed)
                      document.getElementById("comment_feed").innerHTML = comments_feed;
                   })
                }
