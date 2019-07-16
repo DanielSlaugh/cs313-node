@@ -12,6 +12,7 @@ const pool = new Pool({
   ssl: true
 });
 
+// All the magic happens here
 express()
   .use(express.static(path.join(__dirname, "public")))
   .use(bodyParser.json())

@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
    }
 }, false);
 
+//The following functions call the database and get info
 function login(){
   var uname = document.getElementById("login_uname").value
   var psw =  document.getElementById("login_psw").value

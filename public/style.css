@@ -1,7 +1,4 @@
-/*
-  Some CSS Setup
-  The flexbox in the styling is from the JavaScript30 course
-*/
+/* CSS for Fakebook */
 
 /* For laptops and bigger */
 @media only screen and (min-width: 1000px) {
@@ -32,6 +29,7 @@ div.content{
 }
 
 
+/* For Phones */
 html {
   box-sizing: border-box;
 }
