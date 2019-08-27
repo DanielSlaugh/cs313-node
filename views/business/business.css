@@ -1,0 +1,348 @@
+* {margin: 0;}
+
+body {
+   background-size: cover;
+   font-family: Arial;
+   align-items: center;
+}
+
+/* For the menu Bar */
+ul {
+   margin-top: 2%;
+   margin-right: 0px;
+   margin-left: 0px;
+   border: 0;
+   padding: 0;
+   list-style: none;
+}
+
+ul li {
+   float: left;
+   width: 20%;
+   height: 30%;
+   opacity: .8;
+   line-height: 30px;
+   font-size: 1.3em;
+   text-align: center;
+   font-weight: bolder;
+}
+
+ul li a:hover {
+   text-decoration: underline;
+}
+
+ul li a:active {
+  text-decoration: underline;
+}
+
+ul li ul li {
+   display: none;
+   width: 20%;
+}
+
+/* For Menu bar animations */
+
+.underline{
+   display: inline-block;
+   position: relative;
+   color: white;
+   text-decoration: none;
+}
+
+.underline::before{
+   content: '';
+   position: absolute;
+   width: 100%;
+   transform: scaleX(0);
+   height: 2px;
+   bottom: 0;
+   left: 0;
+   background-color: white;
+   transform-origin: bottom right;
+   transition: transform 0.25s ease-out;
+}
+
+.underline:hover::before{
+   transform: scaleX(1);
+   transform-origin: bottom left;
+}
+
+/* General Stuff */
+
+h1 {
+   padding: 20px;
+   font-size: 230%;
+   font-family: sans-serif;
+   margin-top: 0px;
+   text-shadow: 0px 1px 1px;
+   -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+   -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+   box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+   /* background: url('blueFade.jpeg'); */
+   background-size: 100%;
+}
+h2 {
+   padding: 20px;
+   font-size: 230%;
+   font-family: sans-serif;
+   margin-top: 0px;
+   /* -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+   -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49); */
+   /* box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49); */
+   /* background: url('blueFade.jpeg'); */
+   background-size: 100%;
+}
+
+footer {
+   padding: 20px;
+   font-size: 100%;
+   text-align: center;
+   font-family: sans-serif;
+   margin-top: 0px;
+   /* background: url('blueFade.jpeg'); */
+   background-size: 100%;
+}
+
+.img {
+   float: left;
+   margin-right: 1rem;
+}
+
+section {
+   float: bottom;
+   height: 33%;
+   width: 100%;
+}
+
+nav {
+   margin: 10px;
+   background-color: white;
+   border: 2px solid blue;
+   float: left;
+   width: 20%;
+   opacity: .8;
+   padding: 20px;
+   position: relative;
+}
+
+.main_text{
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    max-width: 75%;
+    max-height: 30%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+}
+
+/*
+Glowing Gradient Button Animation Effects
+on Hover Using Html and CSS - CSS Animation Effects
+*/
+
+.lightup_box{
+   /* padding-top: 1%; */
+   padding-bottom: 1%;
+   border-radius: 5px;
+   background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+   /* opacity: .8; */
+   text-decoration: none;
+
+   position: absolute;
+   transform: translate(-50%, -50%);
+   width: 200px;
+   height: 60px;
+   text-align: center;
+   line-height: 60px;
+   color: #fff;
+   box-sizing: border-box;
+   background-size: 400%;
+   border-radius: 30px;
+   z-index: 1;
+}
+
+.lightup_box:hover{
+   animation: animate 8s linear infinite;
+}
+@keyframes animate{
+   0%{background-position: 0%;       }
+   100%{background-position: 400%;   }
+}
+.lightup_box:before{
+   content: '';
+   position: absolute;
+   top: -5px;
+   left: -5px;
+   right: -5px;
+   bottom: -5px;
+   z-index: -1;
+   background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+   background-size: 400%;
+   border-radius: 40px;
+   filter: blur(20px);
+   transition: 0.5s;
+   opacity: 0;
+}
+.lightup_box:hover:before{
+   filter: blur(20px);
+   opacity: 1;
+   animation: animate 8s linear infinite;
+}
+
+/* Super Fancy Boxes in Section two */
+.container_two{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   text-align: center;
+}
+
+.container_two .box{
+   position: relative;
+   width: 350px;
+   padding: 40px;
+   background: #fff;
+   box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+   border-radius: 4px;
+   margin: 3%;
+   box-sizing: border-box;
+   overflow: hidden;
+}
+
+.container_two .box .icon{
+   position: relative;
+   width: 80px;
+   height: 80px;
+   color: #fff;
+   background: #000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
+   border-radius: 50%;
+   font-size: 40px;
+   font-weight: 700;
+   transition: 1s;
+}
+
+.container_two .box:nth-child(1) .icon{
+   box-shadow: 0 0 0 0 #355de0;
+   background: #355de0;
+}
+
+.container_two .box:nth-child(1):hover .icon{
+   box-shadow: 0 0 0 400px #355de0;
+   background: #355de0;
+}
+
+.container_two .box:nth-child(2) .icon{
+   box-shadow: 0 0 0 0 #18ec23;
+   background: #18ec23;
+}
+
+.container_two .box:nth-child(2):hover .icon{
+   box-shadow: 0 0 0 400px #18ec23;
+   background: #18ec23;
+}
+.container_two .box:nth-child(3) .icon{
+   box-shadow: 0 0 0 0 #ff1b1b;
+   background: #ff1b1b;
+}
+
+.container_two .box:nth-child(3):hover .icon{
+   box-shadow: 0 0 0 400px #ff1b1b;
+   background: #ff1b1b;
+}
+
+.container_two .box .content{
+   position: relative;
+   z-index: 1;
+   transition: 0.5s;
+}
+
+.container_two .box:hover .content{
+   color: #fff;
+}
+
+.container_two .box .content h3{
+   font-size: 1.4em;
+   margin: 4%;
+   padding: 0;
+}
+
+.container_two .box .content a{
+   display: inline-block;
+   padding: 10px 20px;
+   background: #fff;
+   border-radius: 4px;
+   text-decoration: none;
+   color: #000;
+   font-weight: 500;
+   margin-top: 20px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2)
+}
+
+.container_two .box:before{
+   content: '';
+   width: 50%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   background: rgba(255, 255, 255, .2);
+   z-index: 2;
+   pointer-events: none;
+}
+
+.container {
+   position: relative;
+   text-align: center;
+}
+
+.top-left {
+   position: absolute;
+   top: 40px;
+   left: 16px;
+   max-height: 300px;
+}
+
+.bottom-left {
+   position: absolute;
+   opacity: .8;
+   bottom: -25px;
+   left: 16px;
+}
+
+.centered {
+   position: absolute;
+   top: 0px;
+   width: 100%;
+}
+
+@media only screen and (max-width: 850px) {
+   nav {
+      margin: 10px;
+      background-color: white;
+      border: 2px solid blue;
+      float: left;
+      width: 50%;
+      opacity: .9;
+      padding: 20px;
+      position: relative;
+   }
+}
+
+@media only screen and (max-width: 650px) {
+   nav {
+      margin: 10px;
+      background-color: white;
+      border: 2px solid blue;
+      float: left;
+      width: 85%;
+      opacity: .95;
+      padding: 20px;
+      position: relative;
+      font-size: 12px;
+   }
+}
