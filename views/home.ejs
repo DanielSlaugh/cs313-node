@@ -11,15 +11,15 @@
 
 <body onload="load_home_page()">
 
-   <div class="app-wrap">
+      <div class="app-wrap">
 
-      <!-- Top Menu bar -->
-      <div class="icon-bar">
-         <a><i class="fa fa-home" onclick="load_home_page()"></i>Home</a>
-         <a><i class="fa fa-bell"></i>Notifications</a>
-         <a><i class="fa fa-envelope"></i>Messages</a>
-         <a><i class="fa fa-user" onclick="load_profile_page()"></i>Me</a>
-      </div>
+         <!-- Top Menu bar -->
+         <div class="icon-bar">
+            <a><i class="fa fa-home" onclick="load_home_page()"></i>Home</a>
+            <a><i class="fa fa-bell"></i>Notifications</a>
+            <a><i class="fa fa-envelope"></i>Messages</a>
+            <a><i class="fa fa-user" onclick="load_profile_page()"></i>Me</a>
+         </div>
 
       <!-- What's on your mind user bar -->
       <header class="app-header" id="main_head">
@@ -37,15 +37,15 @@
 
             <!-- Create a new Message -->
             <form id="form">
-               <!-- <input type="hidden" name="current_id" id="current_id" value="<?php echo $current_id ?>"> -->
-               <textarea class="textarea" id="message_text" cols="30" rows="10" placeholder="What's on your mind?"
+                  <textarea class="textarea" id="message_text" cols="30" rows="10" placeholder="What's on your mind?"
                   name="message_text"></textarea>
-               <input class="submit" type="button" value="Post" onclick="new_message()">
-               <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                  <input class="submit" type="button" value="Post" onclick="new_message()">
+                  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+               <!-- <input type="hidden" name="current_id" id="current_id" value="<?php echo $current_id ?>"> -->
             </form>
 
-            <!-- Load comments for particular comment -->
             <ul class="posts" id="comment_feed">
+            <!-- Load comments for particular comment -->
                <!-- All the comments load here -->
             </ul>
 
